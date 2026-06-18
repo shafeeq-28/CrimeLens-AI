@@ -6,7 +6,6 @@ import sqlite3
 import db
 from ai_search import find_similar_cases
 from ai_classifier import classify_crime
-from rag_engine import ask_legal_ai
 from ai_summarizer import summarize_complaint
 from fastapi.staticfiles import StaticFiles
 from gemini_agent import generate_gemini_report
@@ -820,25 +819,6 @@ def legal_ai_page(
         }
     )
 
-
-@app.post("/ask-legal-ai")
-def ask_legal(
-    request: Request,
-    question: str = Form(...)
-):
-
-    answer = ask_legal_ai(
-        question
-    )
-
-    return templates.TemplateResponse(
-        request=request,
-        name="rag_assistant.html",
-        context={
-            "request": request,
-            "answer": answer
-        }
-    )
 
 @app.get("/agent-report-test")
 def agent_report_test(
