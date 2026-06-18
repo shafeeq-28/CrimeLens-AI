@@ -3,7 +3,7 @@ from email.message import EmailMessage
 
 SENDER_EMAIL = "criminalcaseassistant7@gmail.com"
 
-APP_PASSWORD = "APP PASSWORD"
+APP_PASSWORD = "fuhfhulefqujalhz"
 
 
 def send_test_email(receiver_email):
