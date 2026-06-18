@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Search By Crime Type</title>
+
+    <style>
+
+        body{
+            font-family:Arial,sans-serif;
+            background:#f4f6f9;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .card{
+            background:white;
+            padding:30px;
+            width:400px;
+            border-radius:10px;
+            box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            text-align:center;
+        }
+
+        select{
+            width:100%;
+            padding:10px;
+            margin-top:15px;
+            margin-bottom:20px;
+        }
+
+        button{
+            width:100%;
+            padding:10px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#1d4ed8;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h2>Search By Crime Type</h2>
+
+    <form action="/search-crime" method="post">
+
+        <select name="crime_type">
+
+            <option>Theft</option>
+
+            <option>Fraud</option>
+
+            <option>Assault</option>
+
+            <option>Property Damage</option>
+
+            <option>Cyber Crime</option>
+
+            <option>Missing Person</option>
+
+            <option>Domestic Violence</option>
+
+            <option>Drug Offense</option>
+
+        </select>
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

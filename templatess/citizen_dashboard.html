@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CrimeLens AI - Citizen Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#f8fafc;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            height:90px;
+
+            background:
+            linear-gradient(
+                90deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            display:flex;
+
+            align-items:center;
+
+            padding-left:30px;
+
+            color:white;
+
+            box-shadow:
+            0px 3px 10px
+            rgba(0,0,0,0.2);
+        }
+
+        .navbar img{
+
+            width:60px;
+            height:60px;
+
+            margin-right:15px;
+        }
+
+        .brand{
+
+            display:flex;
+            flex-direction:column;
+        }
+
+        .brand h1{
+
+            font-size:28px;
+        }
+
+        .brand p{
+
+            color:#cbd5e1;
+            font-size:14px;
+        }
+
+        .container{
+
+            padding:40px;
+        }
+
+        .welcome{
+
+            margin-bottom:30px;
+        }
+
+        .welcome h2{
+
+            color:#1e293b;
+            font-size:34px;
+        }
+
+        .welcome p{
+
+            color:#64748b;
+            margin-top:8px;
+        }
+
+        .cards{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(3,1fr);
+
+            gap:25px;
+        }
+
+        .card{
+
+            background:white;
+
+            padding:35px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:
+            translateY(-5px);
+        }
+
+        .card h3{
+
+            margin-bottom:15px;
+
+            color:#1e3a8a;
+        }
+
+        .card p{
+
+            color:#64748b;
+
+            margin-bottom:20px;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            background:#2563eb;
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:12px 20px;
+
+            border-radius:8px;
+        }
+
+        .btn:hover{
+
+            background:#1d4ed8;
+        }
+
+        .info-box{
+
+            margin-top:40px;
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .info-box h3{
+
+            color:#1e3a8a;
+
+            margin-bottom:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <img
+            src="/static/logo.png"
+            alt="CrimeLens AI">
+
+        <div class="brand">
+
+            <h1>
+                CrimeLens AI
+            </h1>
+
+            <p>
+                AI-Powered Crime Analysis &
+                Investigation Platform
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="welcome">
+
+            <h2>
+                Citizen Dashboard
+            </h2>
+
+            <p>
+                Manage complaints, track status,
+                and access AI-powered legal guidance.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>
+                    Submit Complaint
+                </h3>
+
+                <p>
+                    File a new complaint and
+                    receive AI-assisted analysis.
+                </p>
+
+                <a
+                    href="/complaint-form"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    My Complaints
+                </h3>
+
+                <p>
+                    Track complaint status
+                    and updates.
+                </p>
+
+                <a
+                    href="/my-complaints"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+                    Legal AI Assistant
+                </h3>
+
+                <p>
+                    Ask legal questions using
+                    the FAISS-powered RAG system.
+                </p>
+
+                <a
+                    href="/legal-ai"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>
+                CrimeLens AI Features
+            </h3>
+
+            <p>
+
+                ✓ AI Crime Classification
+
+                <br><br>
+
+                ✓ Agentic Investigation Workflow
+
+                <br><br>
+
+                ✓ Gemini AI Investigation Notes
+
+                <br><br>
+
+                ✓ Similar Case Search
+
+                <br><br>
+
+                ✓ Email Notifications
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

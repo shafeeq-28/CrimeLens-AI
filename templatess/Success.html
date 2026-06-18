@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CrimeLens AI - Investigation Report</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#f8fafc;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            height:90px;
+
+            background:
+            linear-gradient(
+                90deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            display:flex;
+
+            align-items:center;
+
+            padding-left:30px;
+
+            color:white;
+        }
+
+        .navbar img{
+
+            width:60px;
+            height:60px;
+
+            margin-right:15px;
+        }
+
+        .brand h1{
+
+            font-size:28px;
+        }
+
+        .brand p{
+
+            color:#cbd5e1;
+            font-size:14px;
+        }
+
+        .container{
+
+            max-width:1100px;
+
+            margin:40px auto;
+
+            padding:0 20px;
+        }
+
+        .success-banner{
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            text-align:center;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            margin-bottom:30px;
+        }
+
+        .success-banner h1{
+
+            color:#10b981;
+
+            margin-bottom:15px;
+        }
+
+        .grid{
+
+            display:grid;
+
+            grid-template-columns:
+            1fr 1fr;
+
+            gap:25px;
+        }
+
+        .card{
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .card h2{
+
+            color:#1e3a8a;
+
+            margin-bottom:20px;
+        }
+
+        .info-item{
+
+            margin-bottom:18px;
+
+            font-size:17px;
+        }
+
+        ul{
+
+            padding-left:20px;
+        }
+
+        li{
+
+            margin-bottom:10px;
+        }
+
+        .gemini-box{
+
+            margin-top:25px;
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .gemini-box h2{
+
+            color:#1e3a8a;
+
+            margin-bottom:15px;
+        }
+
+        .action{
+
+            text-align:center;
+
+            margin-top:30px;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            background:
+            linear-gradient(
+                90deg,
+                #2563eb,
+                #38bdf8
+            );
+
+            color:white;
+
+            text-decoration:none;
+
+            padding:14px 24px;
+
+            border-radius:10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <img
+            src="/static/logo.png"
+            alt="CrimeLens AI">
+
+        <div class="brand">
+
+            <h1>
+
+                CrimeLens AI
+
+            </h1>
+
+            <p>
+
+                AI-Powered Crime Analysis &
+                Investigation Platform
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="success-banner">
+
+            <h1>
+
+                Complaint Submitted Successfully ✅
+
+            </h1>
+
+            <p>
+
+                Your complaint has been recorded
+                and analyzed using CrimeLens AI.
+
+            </p>
+
+        </div>
+
+        {% if report %}
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h2>
+
+                    Investigation Summary
+
+                </h2>
+
+                <div class="info-item">
+
+                    <b>Crime Type:</b>
+                    {{ report.crime_type }}
+
+                </div>
+
+                <div class="info-item">
+
+                    <b>Severity:</b>
+                    {{ report.severity }}
+
+                </div>
+
+                <div class="info-item">
+
+                    <b>Department:</b>
+                    {{ report.department }}
+
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <h2>
+
+                    Evidence Required
+
+                </h2>
+
+                <ul>
+
+                    {% for item in report.evidence %}
+
+                    <li>
+
+                        {{ item }}
+
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </div>
+
+        <div class="gemini-box">
+
+            <h2>
+
+                Gemini AI Investigation Notes
+
+            </h2>
+
+            <p style="line-height:1.8;">
+
+    {{ report.gemini_notes }}
+
+</p>
+
+        </div>
+
+        {% endif %}
+
+        <div class="action">
+
+            <a
+                href="/complaint-form"
+                class="btn">
+
+                Submit Another Complaint
+
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

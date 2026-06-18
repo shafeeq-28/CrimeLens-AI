@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Crime Search Results</title>
+
+    <style>
+
+        body{
+            font-family:Arial,sans-serif;
+            padding:30px;
+            background:#f4f6f9;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th, td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:left;
+        }
+
+        th{
+            background:#2563eb;
+            color:white;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Crime Type Results</h1>
+
+<table>
+
+<tr>
+    <th>ID</th>
+    <th>User</th>
+    <th>Incident</th>
+    <th>Crime Type</th>
+    <th>Location</th>
+    <th>Status</th>
+</tr>
+
+{% for complaint in complaints %}
+
+<tr>
+
+    <td>
+    CR2026-{{ "%03d"|format(complaint[0]) }}
+</td>
+
+    <td>{{ complaint[1] }}</td>
+
+    <td>{{ complaint[3] }}</td>
+
+    <td>{{ complaint[6] }}</td>
+
+    <td>{{ complaint[4] }}</td>
+
+    <td>{{ complaint[7] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>

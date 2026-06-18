@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+```
+<title>CrimeLens AI - Police Complaints</title>
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        background:#f8fafc;
+    }
+
+    .navbar{
+
+        height:90px;
+
+        background:
+        linear-gradient(
+            90deg,
+            #0f172a,
+            #1e3a8a
+        );
+
+        display:flex;
+
+        align-items:center;
+
+        padding-left:30px;
+
+        color:white;
+    }
+
+    .navbar img{
+
+        width:60px;
+        height:60px;
+
+        margin-right:15px;
+    }
+
+    .brand h1{
+
+        font-size:28px;
+    }
+
+    .brand p{
+
+        color:#cbd5e1;
+        font-size:14px;
+    }
+
+    .container{
+
+        padding:30px;
+    }
+
+    .header{
+
+        margin-bottom:25px;
+    }
+
+    .header h2{
+
+        color:#0f172a;
+        font-size:34px;
+    }
+
+    .header p{
+
+        color:#64748b;
+        margin-top:8px;
+    }
+
+    .table-container{
+
+        background:white;
+
+        border-radius:15px;
+
+        overflow:hidden;
+
+        box-shadow:
+        0px 5px 15px
+        rgba(0,0,0,0.08);
+    }
+
+    table{
+
+        width:100%;
+
+        border-collapse:collapse;
+    }
+
+    th{
+
+        background:#2563eb;
+
+        color:white;
+
+        padding:15px;
+
+        text-align:left;
+    }
+
+    td{
+
+        padding:15px;
+
+        border-bottom:
+        1px solid #e2e8f0;
+
+        vertical-align:top;
+    }
+
+    tr:hover{
+
+        background:#f8fafc;
+    }
+
+    .btn{
+
+        display:inline-block;
+
+        text-decoration:none;
+
+        color:white;
+
+        padding:10px 14px;
+
+        border-radius:8px;
+
+        font-size:14px;
+    }
+
+    .ai{
+
+        background:#2563eb;
+    }
+
+    .update{
+
+        background:#10b981;
+    }
+
+    .status{
+
+        padding:6px 12px;
+
+        border-radius:20px;
+
+        background:#dbeafe;
+
+        color:#1e40af;
+
+        font-size:14px;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="navbar">
+
+    <img
+        src="/static/logo.png"
+        alt="CrimeLens AI">
+
+    <div class="brand">
+
+        <h1>
+
+            CrimeLens AI
+
+        </h1>
+
+        <p>
+
+            AI-Powered Crime Analysis &
+            Investigation Platform
+
+        </p>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="header">
+
+        <h2>
+
+            Police Complaints
+
+        </h2>
+
+        <p>
+
+            Manage complaints, update status,
+            and investigate cases.
+
+        </p>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <tr>
+
+                <th>ID</th>
+
+                <th>User</th>
+
+                <th>Incident</th>
+
+                <th>AI Summary</th>
+
+                <th>Crime Type</th>
+
+                <th>Location</th>
+
+                <th>Status</th>
+
+                <th>Similar Cases</th>
+
+                <th>Action</th>
+
+            </tr>
+
+            {% for complaint in complaints %}
+
+            <tr>
+
+                <td>
+
+                    CR2026-{{ "%03d"|format(complaint[0]) }}
+
+                </td>
+
+                <td>
+
+                    {{ complaint[1] }}
+
+                </td>
+
+                <td>
+
+                    {{ complaint[3] }}
+
+                </td>
+
+                <td>
+
+                    {{ complaint[10] }}
+
+                </td>
+
+                <td>
+
+                    {{ complaint[6] }}
+
+                </td>
+
+                <td>
+
+                    {{ complaint[4] }}
+
+                </td>
+
+                <td>
+
+                    <span class="status">
+
+                        {{ complaint[7] }}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    <a
+                        class="btn ai"
+                        href="/similar-cases/{{ complaint[0] }}">
+
+                        Find Similar
+
+                    </a>
+
+                </td>
+
+                <td>
+
+                    <a
+                        class="btn update"
+                        href="/update-status-page/{{ complaint[0] }}">
+
+                        Update Status
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+```
+
+</body>
+
+</html>

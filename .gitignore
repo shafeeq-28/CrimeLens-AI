@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+
+venv/
+.venv/
+
+complaints.db
+
+.env
+
+.vscode/
+.idea/

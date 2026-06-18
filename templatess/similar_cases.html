@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+```
+<title>CrimeLens AI - Similar Cases</title>
+
+<style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:'Segoe UI',sans-serif;
+    }
+
+    body{
+        background:#f8fafc;
+    }
+
+    .navbar{
+
+        height:90px;
+
+        background:
+        linear-gradient(
+            90deg,
+            #0f172a,
+            #1e3a8a
+        );
+
+        display:flex;
+
+        align-items:center;
+
+        padding-left:30px;
+
+        color:white;
+    }
+
+    .navbar img{
+
+        width:60px;
+        height:60px;
+
+        margin-right:15px;
+    }
+
+    .brand h1{
+
+        font-size:28px;
+    }
+
+    .brand p{
+
+        color:#cbd5e1;
+        font-size:14px;
+    }
+
+    .container{
+
+        max-width:1200px;
+
+        margin:30px auto;
+
+        padding:0 20px;
+    }
+
+    .header{
+
+        margin-bottom:25px;
+    }
+
+    .header h2{
+
+        color:#0f172a;
+
+        font-size:34px;
+    }
+
+    .header p{
+
+        color:#64748b;
+
+        margin-top:8px;
+    }
+
+    .case-card{
+
+        background:white;
+
+        padding:25px;
+
+        border-radius:15px;
+
+        margin-bottom:20px;
+
+        box-shadow:
+        0px 5px 15px
+        rgba(0,0,0,0.08);
+    }
+
+    .case-id{
+
+        color:#1e3a8a;
+
+        font-size:20px;
+
+        font-weight:bold;
+
+        margin-bottom:12px;
+    }
+
+    .score{
+
+        display:inline-block;
+
+        background:#dcfce7;
+
+        color:#15803d;
+
+        padding:8px 14px;
+
+        border-radius:20px;
+
+        font-weight:bold;
+
+        margin-bottom:15px;
+    }
+
+    .complaint{
+
+        color:#334155;
+
+        line-height:1.8;
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<div class="navbar">
+
+    <img
+        src="/static/logo.png"
+        alt="CrimeLens AI">
+
+    <div class="brand">
+
+        <h1>
+
+            CrimeLens AI
+
+        </h1>
+
+        <p>
+
+            AI-Powered Crime Analysis &
+            Investigation Platform
+
+        </p>
+
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="header">
+
+        <h2>
+
+            Similar Cases Analysis
+
+        </h2>
+
+        <p>
+
+            AI-powered vector similarity search
+            using FAISS embeddings.
+
+        </p>
+
+    </div>
+
+    {% for case in cases %}
+
+    <div class="case-card">
+
+        <div class="case-id">
+
+            Complaint ID:
+            CR2026-{{ "%03d"|format(case[0]) }}
+
+        </div>
+
+        <div class="score">
+
+            Similarity Score:
+            {{ "%.1f"|format(case[2] * 100) }}%
+
+        </div>
+
+        <div class="complaint">
+
+            {{ case[1] }}
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+```
+
+</body>
+
+</html>

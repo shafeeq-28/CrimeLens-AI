@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CrimeLens AI - Submit Complaint</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#f8fafc;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            height:90px;
+
+            background:
+            linear-gradient(
+                90deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            display:flex;
+
+            align-items:center;
+
+            padding-left:30px;
+
+            color:white;
+        }
+
+        .navbar img{
+
+            width:60px;
+            height:60px;
+
+            margin-right:15px;
+        }
+
+        .brand h1{
+
+            font-size:28px;
+        }
+
+        .brand p{
+
+            color:#cbd5e1;
+            font-size:14px;
+        }
+
+        .container{
+
+            max-width:1100px;
+
+            margin:40px auto;
+
+            display:grid;
+
+            grid-template-columns:
+            1fr 2fr;
+
+            gap:30px;
+
+            padding:0 20px;
+        }
+
+        .info-card{
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            height:fit-content;
+        }
+
+        .info-card h2{
+
+            color:#1e3a8a;
+
+            margin-bottom:20px;
+        }
+
+        .info-card p{
+
+            color:#64748b;
+
+            line-height:1.7;
+        }
+
+        .form-card{
+
+            background:white;
+
+            padding:35px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .form-card h2{
+
+            color:#1e293b;
+
+            margin-bottom:25px;
+        }
+
+        label{
+
+            display:block;
+
+            margin-bottom:8px;
+
+            font-weight:600;
+        }
+
+        input,
+        textarea{
+
+            width:100%;
+
+            padding:13px;
+
+            border:1px solid #d1d5db;
+
+            border-radius:10px;
+
+            margin-bottom:20px;
+
+            font-size:15px;
+        }
+
+        textarea{
+
+            resize:vertical;
+        }
+
+        button{
+
+            width:100%;
+
+            border:none;
+
+            padding:15px;
+
+            border-radius:10px;
+
+            color:white;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            background:
+            linear-gradient(
+                90deg,
+                #2563eb,
+                #38bdf8
+            );
+        }
+
+        button:hover{
+
+            opacity:0.9;
+        }
+
+        .tips{
+
+            margin-top:20px;
+        }
+
+        .tips li{
+
+            margin-bottom:12px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <img
+            src="/static/logo.png"
+            alt="CrimeLens AI">
+
+        <div class="brand">
+
+            <h1>
+
+                CrimeLens AI
+
+            </h1>
+
+            <p>
+
+                AI-Powered Crime Analysis &
+                Investigation Platform
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="info-card">
+
+            <h2>
+
+                Complaint Guidelines
+
+            </h2>
+
+            <p>
+
+                Provide accurate information
+                about the incident.
+
+            </p>
+
+            <ul class="tips">
+
+                <li>
+                    Include complete details.
+                </li>
+
+                <li>
+                    Mention location clearly.
+                </li>
+
+                <li>
+                    Provide a valid email.
+                </li>
+
+                <li>
+                    Upload supporting evidence later.
+                </li>
+
+                <li>
+                    Track status from dashboard.
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="form-card">
+
+            <h2>
+
+                Submit Complaint
+
+            </h2>
+
+            <form
+                action="/complaint"
+                method="post">
+
+                <label>
+
+                    Name
+
+                </label>
+
+                <input
+                    type="text"
+                    name="name"
+                    required>
+
+                <label>
+
+                    Email
+
+                </label>
+
+                <input
+                    type="email"
+                    name="email"
+                    required>
+
+                <label>
+
+                    Incident Description
+
+                </label>
+
+                <textarea
+                    name="incident"
+                    rows="8"
+                    required>
+                </textarea>
+
+                <label>
+
+                    Location
+
+                </label>
+
+                <input
+                    type="text"
+                    name="location"
+                    required>
+
+                <label>
+
+                    Date
+
+                </label>
+
+                <input
+                    type="date"
+                    name="date"
+                    required>
+
+                <button
+                    type="submit">
+
+                    Submit Complaint
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

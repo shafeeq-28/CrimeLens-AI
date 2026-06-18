@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CrimeLens AI - Legal Assistant</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#f8fafc;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            height:90px;
+
+            background:
+            linear-gradient(
+                90deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            display:flex;
+
+            align-items:center;
+
+            padding-left:30px;
+
+            color:white;
+        }
+
+        .navbar img{
+
+            width:60px;
+            height:60px;
+
+            margin-right:15px;
+        }
+
+        .brand h1{
+
+            font-size:28px;
+        }
+
+        .brand p{
+
+            color:#cbd5e1;
+            font-size:14px;
+        }
+
+        .container{
+
+            max-width:1200px;
+
+            margin:40px auto;
+
+            padding:0 20px;
+        }
+
+        .hero{
+
+            background:white;
+
+            padding:35px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            margin-bottom:30px;
+        }
+
+        .hero h1{
+
+            color:#1e3a8a;
+
+            margin-bottom:10px;
+        }
+
+        .hero p{
+
+            color:#64748b;
+        }
+
+        .question-box{
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        input{
+
+            width:100%;
+
+            padding:15px;
+
+            border:1px solid #d1d5db;
+
+            border-radius:10px;
+
+            margin-bottom:20px;
+
+            font-size:16px;
+        }
+
+        button{
+
+            width:100%;
+
+            border:none;
+
+            padding:15px;
+
+            border-radius:10px;
+
+            color:white;
+
+            font-size:16px;
+
+            cursor:pointer;
+
+            background:
+            linear-gradient(
+                90deg,
+                #2563eb,
+                #38bdf8
+            );
+        }
+
+        button:hover{
+
+            opacity:0.9;
+        }
+
+        .answer-card{
+
+            margin-top:30px;
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .answer-card h2{
+
+            color:#1e3a8a;
+
+            margin-bottom:20px;
+        }
+
+        .formatted-answer{
+
+            line-height:2;
+
+            font-size:16px;
+
+            color:#334155;
+        }
+
+        .footer-note{
+
+            margin-top:25px;
+
+            color:#64748b;
+
+            font-size:14px;
+
+            border-top:1px solid #e2e8f0;
+
+            padding-top:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <img
+            src="/static/logo.png"
+            alt="CrimeLens AI">
+
+        <div class="brand">
+
+            <h1>
+                CrimeLens AI
+            </h1>
+
+            <p>
+                AI-Powered Crime Analysis &
+                Investigation Platform
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="hero">
+
+            <h1>
+                Legal AI Assistant
+            </h1>
+
+            <p>
+                Ask legal questions using our
+                FAISS-powered Retrieval-Augmented
+                Generation (RAG) system.
+            </p>
+
+        </div>
+
+        <div class="question-box">
+
+            <form
+                action="/ask-legal-ai"
+                method="post">
+
+                <input
+                    type="text"
+                    name="question"
+                    placeholder="Ask a legal question..."
+                    required>
+
+                <button
+                    type="submit">
+
+                    Ask AI Assistant
+
+                </button>
+
+            </form>
+
+        </div>
+
+        {% if answer %}
+
+        <div class="answer-card">
+
+            <h2>
+
+                AI Response
+
+            </h2>
+
+            <div class="formatted-answer">
+
+                {{ answer
+                    | replace('\n', '<br><br>')
+                    | safe }}
+
+            </div>
+
+            <div class="footer-note">
+
+                Powered by FAISS +
+                Sentence Transformers +
+                Retrieval-Augmented Generation (RAG)
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>CrimeLens AI - Police Control Center</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+
+            background:#f8fafc;
+
+            min-height:100vh;
+        }
+
+        .navbar{
+
+            height:90px;
+
+            background:
+            linear-gradient(
+                90deg,
+                #0f172a,
+                #1e3a8a
+            );
+
+            display:flex;
+
+            align-items:center;
+
+            padding-left:30px;
+
+            color:white;
+        }
+
+        .navbar img{
+
+            width:60px;
+            height:60px;
+
+            margin-right:15px;
+        }
+
+        .brand h1{
+
+            font-size:28px;
+        }
+
+        .brand p{
+
+            color:#cbd5e1;
+            font-size:14px;
+        }
+
+        .container{
+
+            padding:40px;
+        }
+
+        .heading{
+
+            margin-bottom:35px;
+        }
+
+        .heading h2{
+
+            font-size:36px;
+
+            color:#0f172a;
+        }
+
+        .heading p{
+
+            color:#64748b;
+
+            margin-top:8px;
+        }
+
+        .stats{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(4,1fr);
+
+            gap:20px;
+
+            margin-bottom:40px;
+        }
+
+        .stat-card{
+
+            background:white;
+
+            padding:25px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            text-align:center;
+        }
+
+        .stat-card h3{
+
+            color:#2563eb;
+
+            font-size:34px;
+        }
+
+        .stat-card p{
+
+            margin-top:10px;
+
+            color:#64748b;
+        }
+
+        .actions{
+
+            display:grid;
+
+            grid-template-columns:
+            repeat(3,1fr);
+
+            gap:25px;
+        }
+
+        .card{
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+
+            transition:0.3s;
+        }
+
+        .card:hover{
+
+            transform:
+            translateY(-5px);
+        }
+
+        .card h3{
+
+            color:#1e3a8a;
+
+            margin-bottom:15px;
+        }
+
+        .card p{
+
+            color:#64748b;
+
+            margin-bottom:20px;
+        }
+
+        .btn{
+
+            display:inline-block;
+
+            text-decoration:none;
+
+            background:#2563eb;
+
+            color:white;
+
+            padding:12px 20px;
+
+            border-radius:8px;
+        }
+
+        .btn:hover{
+
+            background:#1d4ed8;
+        }
+
+        .info{
+
+            margin-top:40px;
+
+            background:white;
+
+            padding:30px;
+
+            border-radius:15px;
+
+            box-shadow:
+            0px 5px 15px
+            rgba(0,0,0,0.08);
+        }
+
+        .info h3{
+
+            color:#1e3a8a;
+
+            margin-bottom:15px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="navbar">
+
+        <img
+            src="/static/logo.png"
+            alt="CrimeLens AI">
+
+        <div class="brand">
+
+            <h1>
+
+                CrimeLens AI
+
+            </h1>
+
+            <p>
+
+                AI-Powered Crime Analysis &
+                Investigation Platform
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="container">
+
+        <div class="heading">
+
+            <h2>
+
+                Police Control Center
+
+            </h2>
+
+            <p>
+
+                Monitor complaints, investigate
+                cases, and use AI-powered tools.
+
+            </p>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <h3>AI</h3>
+
+                <p>Crime Analysis</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>RAG</h3>
+
+                <p>Legal Assistant</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>5</h3>
+
+                <p>Investigation Agents</p>
+
+            </div>
+
+            <div class="stat-card">
+
+                <h3>24/7</h3>
+
+                <p>Monitoring</p>
+
+            </div>
+
+        </div>
+
+        <div class="actions">
+
+            <div class="card">
+
+                <h3>
+
+                    View Complaints
+
+                </h3>
+
+                <p>
+
+                    Access all citizen complaints
+                    and update investigation status.
+
+                </p>
+
+                <a
+                    href="/police-complaints"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+
+                    Search Crime Type
+
+                </h3>
+
+                <p>
+
+                    Analyze complaints based on
+                    crime categories.
+
+                </p>
+
+                <a
+                    href="/search-crime-page"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+            <div class="card">
+
+                <h3>
+
+                    Analytics Dashboard
+
+                </h3>
+
+                <p>
+
+                    View trends, crime statistics,
+                    and system analytics.
+
+                </p>
+
+                <a
+                    href="/analytics"
+                    class="btn">
+
+                    Open
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="info">
+
+            <h3>
+
+                AI Features Enabled
+
+            </h3>
+
+            <p>
+
+                ✓ Crime Classification Agent
+
+                <br><br>
+
+                ✓ Severity Analysis Agent
+
+                <br><br>
+
+                ✓ Evidence Recommendation Agent
+
+                <br><br>
+
+                ✓ Department Routing Agent
+
+                <br><br>
+
+                ✓ Gemini Investigation Agent
+
+                <br><br>
+
+                ✓ FAISS-Based Legal Assistant
+
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
