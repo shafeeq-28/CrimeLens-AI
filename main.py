@@ -575,99 +575,139 @@ def create_complaint(
     global CURRENT_USER
     global LAST_REPORT
 
-    crime_type, confidence = classify_crime(
-        incident
-    )
+    try:
 
-    LAST_REPORT = generate_investigation_report(
-        crime_type,
-        incident
-    )
+        print("STEP 1")
 
-    severity = analyze_severity(
-        crime_type,
-        incident
-    )
+        crime_type, confidence = classify_crime(
+            incident
+        )
 
-    LAST_REPORT["gemini_notes"] = generate_gemini_report(
-        incident,
-        crime_type,
-        severity,
-        LAST_REPORT["department"]
-    )
+        print("STEP 2")
 
-    print(
-        "Severity:",
-        severity
-    )
+        LAST_REPORT = generate_investigation_report(
+            crime_type,
+            incident
+        )
 
-    status = "Pending"
+        print("STEP 3")
 
-    formal_complaint = f"""
+        severity = analyze_severity(
+            crime_type,
+            incident
+        )
+
+        print("STEP 4")
+
+        try:
+
+            LAST_REPORT["gemini_notes"] = generate_gemini_report(
+                incident,
+                crime_type,
+                severity,
+                LAST_REPORT["department"]
+            )
+
+        except Exception as e:
+
+            print(
+                "Gemini Error:",
+                e
+            )
+
+            LAST_REPORT["gemini_notes"] = (
+                "Gemini report unavailable."
+            )
+
+        print("STEP 5")
+
+        status = "Pending"
+
+        formal_complaint = f"""
 The complainant {name} reported that
 {incident} at {location}
 on {date}.
 """
 
-    conn = sqlite3.connect("complaints.db")
-    cursor = conn.cursor()
-
-    cursor.execute(
-        """
-        INSERT INTO complaints
-        (
-            username,
-            name,
-            email,
-            incident,
-            location,
-            date,
-            crime_type,
-            status,
-            formal_complaint
+        conn = sqlite3.connect(
+            "complaints.db"
         )
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """,
-        (
-            CURRENT_USER,
-            name,
-            email,
-            incident,
-            location,
-            date,
-            crime_type,
-            status,
-            formal_complaint
+
+        cursor = conn.cursor()
+
+        cursor.execute(
+            """
+            INSERT INTO complaints
+            (
+                username,
+                name,
+                email,
+                incident,
+                location,
+                date,
+                crime_type,
+                status,
+                formal_complaint
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                CURRENT_USER,
+                name,
+                email,
+                incident,
+                location,
+                date,
+                crime_type,
+                status,
+                formal_complaint
+            )
         )
-    )
 
-    complaint_id = cursor.lastrowid
+        complaint_id = cursor.lastrowid
 
-    conn.commit()
-    conn.close()
+        conn.commit()
+        conn.close()
 
-    display_id = f"CR2026-{complaint_id:03d}"
+        print("STEP 6")
 
-    try:
+        display_id = (
+            f"CR2026-{complaint_id:03d}"
+        )
 
-        send_complaint_email(
-            email,
-            display_id,
-            crime_type,
-            status
+        try:
+
+            send_complaint_email(
+                email,
+                display_id,
+                crime_type,
+                status
+            )
+
+        except Exception as e:
+
+            print(
+                "Email Error:",
+                e
+            )
+
+        print("STEP 7")
+
+        return RedirectResponse(
+            url="/success",
+            status_code=303
         )
 
     except Exception as e:
 
         print(
-            "Email Error:",
+            "COMPLAINT ROUTE ERROR:",
             e
         )
 
-    return RedirectResponse(
-        url="/success",
-        status_code=303
-    )
+        return {
+            "error": str(e)
+        }
 
 # --------------------------------
 # View All Complaints API
