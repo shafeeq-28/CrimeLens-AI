@@ -17,6 +17,26 @@ from send_email import (
     send_complaint_email,
     send_status_update_email
 )
+
+import sqlite3
+
+conn = sqlite3.connect("complaints.db")
+cursor = conn.cursor()
+
+try:
+    cursor.execute(
+        """
+        ALTER TABLE complaints
+        ADD COLUMN email TEXT
+        """
+    )
+    conn.commit()
+
+except:
+    pass
+
+conn.close()
+
 app = FastAPI()
 app.mount(
     "/static",
