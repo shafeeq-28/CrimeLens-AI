@@ -1,11 +1,4 @@
-from sentence_transformers import SentenceTransformer
-from sentence_transformers import util
 import sqlite3
-
-
-model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
-)
 
 
 def find_similar_cases(
@@ -14,12 +7,10 @@ def find_similar_cases(
 ):
 
     conn = sqlite3.connect(
-        r"C:\Users\shafeeq\complaints.db"
+        "complaints.db"
     )
 
     cursor = conn.cursor()
-
-    # Get current complaint's crime type
 
     cursor.execute(
         """
@@ -33,16 +24,17 @@ def find_similar_cases(
     crime_row = cursor.fetchone()
 
     if not crime_row:
+
         conn.close()
+
         return []
 
     crime_type = crime_row[0]
 
-    # Fetch only same crime type complaints
-
     cursor.execute(
         """
-        SELECT id, incident
+        SELECT id,
+               incident
         FROM complaints
         WHERE crime_type = ?
         """,
@@ -53,55 +45,18 @@ def find_similar_cases(
 
     conn.close()
 
-    if len(rows) == 0:
-        return []
-
-    complaint_ids = []
-    complaint_texts = []
+    results = []
 
     for row in rows:
 
-        complaint_ids.append(
-            row[0]
-        )
+        if row[0] != current_complaint_id:
 
-        complaint_texts.append(
-            row[1]
-        )
-
-    database_embeddings = model.encode(
-        complaint_texts,
-        convert_to_tensor=True
-    )
-
-    query_embedding = model.encode(
-        new_complaint,
-        convert_to_tensor=True
-    )
-
-    similarities = util.cos_sim(
-        query_embedding,
-        database_embeddings
-    )[0]
-
-    results = []
-
-    for i, score in enumerate(similarities):
-
-        if complaint_ids[i] == current_complaint_id:
-            continue
-
-        results.append(
-            (
-                complaint_ids[i],
-                complaint_texts[i],
-                float(score)
+            results.append(
+                (
+                    row[0],
+                    row[1],
+                    1.0
+                )
             )
-        )
-
-    results.sort(
-        key=lambda x: x[2],
-        reverse=True
-    )
 
     return results[:3]
