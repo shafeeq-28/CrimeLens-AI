@@ -247,77 +247,77 @@
 
             <tr>
 
-                <td>
+    <td>
 
-                    CR2026-{{ "%03d"|format(complaint[0]) }}
+        CR2026-{{ "%03d"|format(complaint[0]) }}
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    {{ complaint[1] }}
+        {{ complaint[1] }}
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    {{ complaint[3] }}
+        {{ complaint[4] }}
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    {{ complaint[10] }}
+        {{ complaint[9][:100] }}...
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    {{ complaint[6] }}
+        {{ complaint[7] }}
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    {{ complaint[4] }}
+        {{ complaint[5] }}
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    <span class="status">
+        <span class="status">
 
-                        {{ complaint[7] }}
+            {{ complaint[8] }}
 
-                    </span>
+        </span>
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    <a
-                        class="btn ai"
-                        href="/similar-cases/{{ complaint[0] }}">
+        <a
+            class="btn ai"
+            href="/similar-cases/{{ complaint[0] }}">
 
-                        Find Similar
+            Find Similar
 
-                    </a>
+        </a>
 
-                </td>
+    </td>
 
-                <td>
+    <td>
 
-                    <a
-                        class="btn update"
-                        href="/update-status-page/{{ complaint[0] }}">
+        <a
+            class="btn update"
+            href="/update-status-page/{{ complaint[0] }}">
 
-                        Update Status
+            Update Status
 
-                    </a>
+        </a>
 
-                </td>
+    </td>
 
-            </tr>
+</tr>
 
             {% endfor %}
 
