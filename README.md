@@ -57,10 +57,8 @@ FAISS-based Legal Knowledge Retrieval System
 
 ## Author
 
-Mohammed Shafeeq M
-
-Sri Sairam Engineering College
-
+Mohammed Shafeeq M    
+Sri Sairam Engineering College    
 Electronics and Communication Engineering
 =======
 # CrimeLens-AI
