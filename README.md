@@ -216,7 +216,7 @@ Status Updates & Notifications
 
 ## Gmail Notification
 
-![Gmail Notification](Screenshots/Gmail_Notification.jpeg)
+![Gmail_Notification](Screenshots/Gmail_Notification.jpeg)
 
 ---
 
