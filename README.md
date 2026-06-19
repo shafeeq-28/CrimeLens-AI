@@ -1,65 +1,151 @@
 
 # CrimeLens AI
 
-AI-Powered Crime Analysis and Investigation Platform built using FastAPI, Gemini AI, FAISS, RAG and Agentic AI Workflows.
+AI-Powered Crime Analysis and Investigation Platform using FastAPI, Gemini AI, SQLite, and Agentic Investigation Workflows.
 
+## Overview
 
+CrimeLens AI is an intelligent crime complaint management platform that helps citizens register complaints while assisting law enforcement agencies through AI-powered crime classification, investigation report generation, severity analysis, and automated case management.
+
+The system enables citizens to submit complaints online and provides police officers with analytical tools to investigate cases efficiently.
+
+---
 
 ## Features
 
-- Crime Classification Agent
-- Severity Analysis Agent
-- Evidence Recommendation Agent
-- Department Routing Agent
-- Gemini AI Investigation Notes
-- Legal RAG Assistant
-- FAISS Similar Case Search
-- Analytics Dashboard
-- Email Notifications
-- User and Police Dashboards
+### Citizen Portal
 
+* User Login System
+* Submit Crime Complaints
+* AI-Based Crime Classification
+* Complaint Tracking
+* Investigation Report Generation
+* Gemini AI Investigation Notes
 
-## Tech Stack
+### Police Portal
 
-- Python
-- FastAPI
-- SQLite
-- Gemini AI
-- FAISS
-- Sentence Transformers
-- HTML
-- CSS
+* View Registered Complaints
+* Crime Analytics Dashboard
+* Update Complaint Status
+* Similar Case Search
+* Investigation Management
 
+### AI Features
 
+* Crime Type Classification
+* Severity Analysis Agent
+* Investigation Report Agent
+* Gemini AI Generated Investigation Notes
+* Automated Evidence Suggestions
 
-## AI Components
+---
 
-### Agent 1
-Crime Classification
+## Technology Stack
 
-### Agent 2
-Severity Analysis
+### Backend
 
-### Agent 3
-Evidence Recommendation
+* FastAPI
+* Python
+* SQLite
 
-### Agent 4
-Department Routing
+### AI & Machine Learning
 
-### Agent 5
-Gemini Investigation Notes
+* Google Gemini AI
+* Agentic Investigation Workflows
 
-### RAG Assistant
+### Frontend
 
-FAISS-based Legal Knowledge Retrieval System
+* HTML
+* CSS
+* Jinja2 Templates
 
+### Deployment
 
+* Render
+* GitHub
+* ngrok (for live demonstrations)
+
+---
+
+## Project Screenshots
+
+### Login Page
+
+![Login](Screenshots/login.png)
+
+### Complaint Submission Form
+
+![Complaint Form](Screenshots/Complaint_form.png)
+
+### Complaint Submitted Successfully
+
+![Success](Screenshots/Submit_success.png)
+
+### Police Dashboard
+
+![Police Dashboard](Screenshots/Police_Dashboard.png)
+
+### Citizen Dashboard
+
+![Citizen Dashboard](Screenshots/citizen_Dashboard.png)
+
+### Police Analytics Dashboard
+
+![Analytics Dashboard](Screenshots/police analytics dashboard.png)
+
+### Police View Complaints
+
+![View Complaints](Screenshots/police view complaints.png)
+
+### User Complaint Tracking
+
+![User Complaint](Screenshots/user's_Complaint.png)
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/shafeeq-28/CrimeLens-AI.git
+cd CrimeLens-AI
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application:
+
+```bash
+python -m uvicorn main:app --reload
+```
+
+Open:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+## Future Enhancements
+
+* Retrieval-Augmented Generation (RAG) Integration
+* Real-Time Email Notifications
+* Advanced Crime Analytics
+* Mobile Application
+* Multi-Language Support
+
+---
 
 ## Author
 
-Mohammed Shafeeq M    
-Sri Sairam Engineering College    
-Electronics and Communication Engineering
-=======
-# CrimeLens-AI
-AI-Powered Crime Analysis and Investigation Platform using FastAPI, Gemini AI, FAISS, RAG and Agentic AI Workflows.
+Mohammed Shafeeq M
+
+B.E Electronics and Communication Engineering (ECE)
+
+Sri Sairam Engineering College
