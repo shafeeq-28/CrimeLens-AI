@@ -2,9 +2,7 @@ import smtplib
 from email.message import EmailMessage
 
 SENDER_EMAIL = "criminalcaseassistant7@gmail.com"
-
-APP_PASSWORD = "ekxenknbjawhoyxh"
-
+APP_PASSWORD = ""
 
 def send_test_email(receiver_email):
 
