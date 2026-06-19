@@ -186,7 +186,7 @@ Status Updates & Notifications
 
 ## Citizen Dashboard
 
-![Citizen Dashboard](Screenshots/citizen_Dashboard.png)
+![Citizen Dashboard](Screenshots/Citizen_Dashboard.png)
 
 ---
 
@@ -198,19 +198,25 @@ Status Updates & Notifications
 
 ## Police Analytics Dashboard
 
-![Analytics Dashboard](Screenshots/police analytics dashboard.png)
+![Analytics Dashboard](Screenshots/police%20analytics%20dashboard.png)
 
 ---
 
 ## Police Complaint Management
 
-![Police View Complaints](Screenshots/police view complaints.png)
+![Police View Complaints](Screenshots/police%20view%20complaints.png)
 
 ---
 
 ## User Complaint Tracking
 
 ![User Complaint](Screenshots/user's_Complaint.png)
+
+---
+
+## Gmail Notification
+
+![Gmail Notification](Screenshots/Gmail_Notification.jpeg)
 
 ---
 
