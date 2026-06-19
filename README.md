@@ -12,7 +12,7 @@ The platform enables citizens to register complaints online while helping police
 
 ### Render Deployment
 
-https://your-render-url.onrender.com
+https://crimelens-ai-1.onrender.com/
 
 ### Demo Version (Full Functionality Including Email)
 
